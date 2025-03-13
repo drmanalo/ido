@@ -1,0 +1,10 @@
+# Pycharm
+.idea/
+
+# python
+localsettings.py
+Pipfile.lock
+*.pyc
+
+# database
+*.sqlite3
