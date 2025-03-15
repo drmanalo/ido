@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-570iwev*u--nt1912p8eel3n+o&9y2=(c7yov=_m(wyz4&qr+=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.176']
 
 
 # Application definition
@@ -54,7 +56,9 @@ ROOT_URLCONF = 'bigday.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join('bigday', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,9 +119,47 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join('bigday', 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Set to "console" for console output of emails or to "smtp" to send real mails
+MAIL_BACKEND = "console"
+
+# Some default values. Will be overwritten by a localsetting.py (rename 'localsettings.py.template' to 'localsettings.py')
+# This is used in a few places where the names of the couple are used
+BRIDE_AND_GROOM = 'Sophia and Chris'
+# the date of your wedding
+WEDDING_DATE = '31st August 2025'
+# the location of your wedding
+WEDDING_LOCATION = 'Main St, Bourton on Dunsmore, Rugby CV23 9QZ'
+# This is used in links in save the date / invitations
+WEDDING_WEBSITE_URL = 'https://sophiachris.ido'
+# base address for all emails
+DEFAULT_WEDDING_EMAIL = 'bride@wedding.com'
+WEDDING_CC_LIST = []
+
+try:
+    from .localsettings import *
+except ImportError:
+    pass
+
+if (MAIL_BACKEND == 'console'):
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+elif (MAIL_BACKEND == 'smtp'):
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# the address your emails (save the dates/invites/etc.) will come from
+DEFAULT_WEDDING_FROM_EMAIL = BRIDE_AND_GROOM + ' <' + DEFAULT_WEDDING_EMAIL + '>' # change to 'address@domain.tld'
+# when sending test emails it will use this address
+DEFAULT_WEDDING_TEST_EMAIL = DEFAULT_WEDDING_FROM_EMAIL
+# the default reply-to of your emails, change, if you want to have your replies somewhere else
+DEFAULT_WEDDING_REPLY_EMAIL = DEFAULT_WEDDING_EMAIL
