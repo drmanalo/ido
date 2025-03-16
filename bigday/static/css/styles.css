@@ -8321,6 +8321,11 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.bg-yellow {
+  --bs-bg-opacity: 1;
+  background-color: #f9e0b2 !important;
+}
+
 .bg-body {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
@@ -10971,6 +10976,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
 html {
   scroll-padding-top: calc(4.5rem - 1px);
 }
@@ -11069,7 +11075,7 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/venue.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
