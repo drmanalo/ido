@@ -15,7 +15,7 @@ It is recommended that you setup a `pipenv` before development. Then install dep
 You can now visit your site at http://localhost:8000/.
 
 Admin interface is available at http://localhost:8000/admin/. 
-Use the superuser created in step three of the commands above.
+Use the username/password you setup using `createsuperuser` command.
 
 ## TODO
 ```commandline
