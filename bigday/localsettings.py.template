@@ -14,7 +14,8 @@ WEDDING_CC_LIST = []
 # your names
 BRIDE_AND_GROOM = 'Your names'
 # the location of your wedding
-WEDDING_LOCATION = 'Somewhere special'
+WEDDING_VENUE = 'Somewhere special'
+WEDDING_POSTCODE = 'CV4 4DS'
 # the date of your wedding
 WEDDING_DATE = 'January 1st, 1969'
 # this is used in links in save the date / invitations

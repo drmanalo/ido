@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'guests',
 ]
 
 MIDDLEWARE = [
@@ -137,9 +138,10 @@ MAIL_BACKEND = "console"
 # This is used in a few places where the names of the couple are used
 BRIDE_AND_GROOM = 'Sophia and Chris'
 # the date of your wedding
-WEDDING_DATE = '31st August 2025'
+WEDDING_DATE = '31st August 2025 @ 14:00'
 # the location of your wedding
-WEDDING_LOCATION = 'Main St, Bourton on Dunsmore, Rugby CV23 9QZ'
+WEDDING_VENUE = 'Main St, Bourton on Dunsmore'
+WEDDING_POSTCODE= 'Rugby CV23 9QZ'
 # This is used in links in save the date / invitations
 WEDDING_WEBSITE_URL = 'https://sophiachris.ido'
 # base address for all emails
