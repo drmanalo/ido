@@ -11,7 +11,7 @@ from guests.models import Guest, MEALS
 
 InviteResponse = namedtuple('InviteResponse', ['guest_pk', 'is_attending', 'meal'])
 
-def invitation(request, invite_id):
+def invite(request, invite_id):
     party = guest_party_by_invite_id_or_404(invite_id)
     if party.invitation_opened is None:
         # update if this is the first time the invitation was opened
@@ -29,7 +29,7 @@ def invitation(request, invite_id):
             party.comments = comments if not party.comments else '{}; {}'.format(party.comments, comments)
         party.is_attending = party.any_guests_attending
         party.save()
-        return HttpResponseRedirect(reverse('rsvp-confirm', args=[invite_id]))
+        return HttpResponseRedirect(reverse('confirm', args=[invite_id]))
 
     return render(request, template_name='guests/invitation.html', context={
         'party': party,
@@ -41,9 +41,9 @@ def invitation(request, invite_id):
         'wedding_venue' : settings.WEDDING_VENUE,
     })
 
-def rsvp_confirm(request, invite_id=None):
+def confirm(request, invite_id=None):
     party = guest_party_by_invite_id_or_404(invite_id)
-    return render(request, template_name='guests/rsvp_confirmation.html', context={
+    return render(request, template_name='guests/confirmation.html', context={
         'party': party,
         'support_email' : settings.DEFAULT_WEDDING_REPLY_EMAIL,
         'bride_and_groom' : settings.BRIDE_AND_GROOM,

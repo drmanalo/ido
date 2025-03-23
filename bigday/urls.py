@@ -18,12 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 
-from guests.views import invitation, rsvp_confirm
+from guests.views import invite, confirm
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    re_path(r'^invite/(?P<invite_id>[\w-]+)/$', invitation, name='invitation'),
-    re_path(r'^rsvp/confirm/(?P<invite_id>[\w-]+)/$', rsvp_confirm, name='rsvp-confirm'),
+    re_path(r'^invite/(?P<invite_id>[\w-]+)/$', invite, name='invite'),
+    re_path(r'^confirm/(?P<invite_id>[\w-]+)/$', confirm, name='confirm'),
 ]
