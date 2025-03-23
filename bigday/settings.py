@@ -138,7 +138,7 @@ MAIL_BACKEND = "console"
 # This is used in a few places where the names of the couple are used
 BRIDE_AND_GROOM = 'Sophia and Chris'
 # the date of your wedding
-WEDDING_DATE = '31st August 2025 @ 14:00'
+WEDDING_DATE = 'Aug 31, 2025 12:00:00'
 # the location of your wedding
 WEDDING_VENUE = 'Main St, Bourton on Dunsmore'
 WEDDING_POSTCODE= 'Rugby CV23 9QZ'
